@@ -9,4 +9,4 @@ Your job here is helping her retrieve her magic ward, but be careful! This journ
 What are you waiting for? The journey ahead awaits...
 
 
-_Game is currently under development. Final product may differ early versions_
+_Game is currently under development. Final product may differ from early versions_
