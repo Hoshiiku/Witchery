@@ -467,7 +467,7 @@ TextureImporter:
         serializedVersion: 2
         x: 69
         y: 704
-        width: 69
+        width: 54
         height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -489,7 +489,7 @@ TextureImporter:
         serializedVersion: 2
         x: 138
         y: 704
-        width: 69
+        width: 54
         height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -511,7 +511,7 @@ TextureImporter:
         serializedVersion: 2
         x: 207
         y: 704
-        width: 69
+        width: 50
         height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -531,9 +531,9 @@ TextureImporter:
       name: Warrior_SheetnoEffect_4
       rect:
         serializedVersion: 2
-        x: 276
+        x: 280
         y: 704
-        width: 69
+        width: 47
         height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -553,9 +553,9 @@ TextureImporter:
       name: Warrior_SheetnoEffect_5
       rect:
         serializedVersion: 2
-        x: 345
+        x: 348
         y: 704
-        width: 69
+        width: 47
         height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

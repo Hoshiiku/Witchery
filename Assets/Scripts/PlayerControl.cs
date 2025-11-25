@@ -8,12 +8,14 @@ public class PlayerControl : MonoBehaviour
     bool isGrounded = false;
     [SerializeField] LayerMask groundLayer; 
     SpriteRenderer sprite;
+    Animator anim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,26 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+
+
+
+        if (horizontalInput != 0)
+        {
+            anim.SetBool("Run", true);
+            anim.SetFloat("Y", 0);
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+        }
+        
+
+        anim.SetFloat("Y", rb.linearVelocity.y );
+        if (isGrounded)
+        {
+            
+            anim.SetFloat("Y", 0);
         }
         
     }
