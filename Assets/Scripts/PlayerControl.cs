@@ -94,7 +94,7 @@ public class PlayerControl : MonoBehaviour
             anim.SetBool ("Crouch", true);
 
 
-            Invoke("keepcrouch", 0.05f);
+            Invoke("keepcrouch", 0.03f);
 
 
         }
