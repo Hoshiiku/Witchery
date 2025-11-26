@@ -93,7 +93,30 @@ public class PlayerControl : MonoBehaviour
         {
             anim.SetBool ("Crouch", true);
 
+
+            Invoke("keepcrouch", 0.05f);
+
+
         }
+
+
+    }
+
+    void keepcrouch()
+    {
+        
+        if (Input.GetKey(KeyCode.S))
+        {
+            anim.SetBool("Crouch", false);
+        }
+
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            anim.SetBool("Crouch", false);
+        }
+
+
+
 
 
     }
