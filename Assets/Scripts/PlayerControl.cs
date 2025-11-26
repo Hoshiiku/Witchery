@@ -6,6 +6,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float jumpForce = 7f;
     Rigidbody2D rb;
     bool isGrounded = false;
+    bool isAttacking = false;
+
     [SerializeField] LayerMask groundLayer; 
     SpriteRenderer sprite;
     Animator anim;
@@ -59,6 +61,44 @@ public class PlayerControl : MonoBehaviour
             
             anim.SetFloat("Y", 0);
         }
+
+
+        if (Input.GetButtonDown("Fire1") && !isAttacking)
+        {
+
+            anim.SetBool("Attack", true);
+            isAttacking = true;
+
+            
+
+        }
+        else if (isAttacking)
+        {
+            anim.SetBool("Attack", false);
+            isAttacking = false;
+        }
+
+
+    crouch();
+
         
     }
+
+    void crouch()
+    {
+        //float  verticalInput = Input.GetAxis("Vertical");
+       // if (verticalInput < 0) { anim.SetBool("Crouch", true); }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            anim.SetBool ("Crouch", true);
+
+        }
+
+
+    }
+
+
+
+
 }
