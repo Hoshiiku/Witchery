@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D rb;
     bool isGrounded = false;
     bool isAttacking = false;
-
+    bool isCrouching = false;
     [SerializeField] LayerMask groundLayer; 
     SpriteRenderer sprite;
     Animator anim;
@@ -24,7 +24,11 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         float  horizontalInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
+        if (!isCrouching &&  !isAttacking)
+        {
+            rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
+        }
+        
         if (horizontalInput > 0)
         {
             sprite.flipX = false;
@@ -68,58 +72,53 @@ public class PlayerControl : MonoBehaviour
 
             anim.SetBool("Attack", true);
             isAttacking = true;
-
+            rb.linearVelocity = new Vector2(0, 0);
             
 
         }
         else if (isAttacking)
         {
-            anim.SetBool("Attack", false);
-            isAttacking = false;
+            rb.linearVelocity = new Vector2(0, 0);
+            Invoke("finishattack", 0.9f);
         }
 
 
-    crouch();
 
-        
-    }
-
-    void crouch()
-    {
-        //float  verticalInput = Input.GetAxis("Vertical");
-       // if (verticalInput < 0) { anim.SetBool("Crouch", true); }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            anim.SetBool ("Crouch", true);
-
-
-            Invoke("keepcrouch", 0.03f);
-
-
-        }
-
-
-    }
-
-    void keepcrouch()
-    {
-        
         if (Input.GetKey(KeyCode.S))
         {
-            anim.SetBool("Crouch", false);
-        }
+            anim.SetBool ("KeepCrouch", true);
 
-        if (Input.GetKeyUp(KeyCode.S))
+            isCrouching = true;
+            rb.linearVelocity = new Vector2(0, 0);
+
+
+        }
+        else if (Input.GetKeyUp(KeyCode.S))
         {
-            anim.SetBool("Crouch", false);
+            anim.SetBool("KeepCrouch", false);
+            Invoke("quitcrouch", 0.3f);
+            
         }
 
 
 
+    
 
-
+        
     }
+
+    void quitcrouch()
+    {
+        isCrouching = false;
+    }
+    void finishattack()
+    {
+        anim.SetBool("Attack", false);
+        isAttacking = false;
+    }
+
+ 
+
 
 
 
