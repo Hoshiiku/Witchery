@@ -44,6 +44,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            anim.SetBool("Run", false);
         }
 
 
