@@ -5,6 +5,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float jumpForce = 7f;
     Rigidbody2D rb;
+
+    float health = 100f;
     bool isGrounded = false;
     bool isAttacking = false;
     bool isCrouching = false;
