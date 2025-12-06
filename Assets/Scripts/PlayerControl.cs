@@ -70,7 +70,7 @@ public class PlayerControl : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Fire1") && !isAttacking)
+        if (Input.GetButtonDown("Fire1") && !isAttacking && rb.linearVelocity.y == 0)
         {
 
             anim.SetBool("Attack", true);

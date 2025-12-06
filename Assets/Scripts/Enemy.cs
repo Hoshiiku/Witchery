@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] protected float speed = 3f;
-    [SerializeField] protected float detectionRange = 10f;
+    
+    
     [SerializeField] protected float health = 50f;
     [SerializeField] protected float damage = 10f;
     protected Rigidbody2D rb;
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         player = FindObjectOfType<PlayerControl>().gameObject;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
+        sprite = GetComponent<SpriteRenderer>();
 
         
     }
