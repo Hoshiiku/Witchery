@@ -51,7 +51,7 @@ public class PlayerControl : MonoBehaviour
 
 
 
-        if (horizontalInput != 0)
+        if (horizontalInput != 0 && !isAttacking)
         {
             anim.SetBool("Run", true);
             anim.SetFloat("Y", 0);
@@ -82,7 +82,7 @@ public class PlayerControl : MonoBehaviour
         else if (isAttacking)
         {
             rb.linearVelocity = new Vector2(0, 0);
-            Invoke("finishattack", 0.9f);
+            Invoke("finishattack", 1.2f);
         }
 
 

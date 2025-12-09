@@ -33,6 +33,11 @@ public class BringerOfDeath : Enemy
             sprite.flipX = true;
         }
     }
+
+    public void TakeDamage(float damageAmount)
+    {
+        Changehealth(damageAmount);
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 }
