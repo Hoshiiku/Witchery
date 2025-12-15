@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     protected GameObject player;
     protected float attackCooldown = 1.5f;
     protected float distance;
+    protected float timer;
+    [SerializeField] protected float attackrange = 1.5f;
 
 
 

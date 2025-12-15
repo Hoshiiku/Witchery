@@ -20688,6 +20688,93 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3564026850829729314, guid: 72a905bcc22e3e443be6f48bfb173c00, type: 3}
   m_PrefabInstance: {fileID: 1206162401}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1206948113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3399380927417477819, guid: f49fc8b3fa38e644cb70bf40a08e21a0, type: 3}
+  m_PrefabInstance: {fileID: 5089007799022074499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1206948114 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4975671284070166546, guid: f49fc8b3fa38e644cb70bf40a08e21a0, type: 3}
+  m_PrefabInstance: {fileID: 5089007799022074499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1206948118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206948113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1206948114}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!114 &1206948119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206948113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 366851d2b53dcf54286ad081333966b7, type: 2}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!4 &1207283847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3564026850829729314, guid: ed925410cd097664ea4b9e3e758f02a4, type: 3}
@@ -36963,7 +37050,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -38.26
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4959970586597024578, guid: 86d38be4937d1c344b9c7f22912685eb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -41568,6 +41656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   damage: 10
+  attackrange: 1.5
   speed: 3
   detectionRange: 6
 --- !u!4 &2091670766 stripped
@@ -43008,10 +43097,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3399380927417477819, guid: f49fc8b3fa38e644cb70bf40a08e21a0, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3399380927417477819, guid: f49fc8b3fa38e644cb70bf40a08e21a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1206948119}
+    - targetCorrespondingSourceObject: {fileID: 3399380927417477819, guid: f49fc8b3fa38e644cb70bf40a08e21a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1206948118}
   m_SourcePrefab: {fileID: 100100000, guid: f49fc8b3fa38e644cb70bf40a08e21a0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

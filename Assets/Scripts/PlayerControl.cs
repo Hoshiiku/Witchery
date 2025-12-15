@@ -120,6 +120,23 @@ public class PlayerControl : MonoBehaviour
         isAttacking = false;
     }
 
+
+
+    public void Changehealth(float amount)
+    {
+        health -= amount;
+        print(health);
+        if (health <= 0)
+        {
+            anim.SetBool("Dead", true);
+            rb.linearVelocity = Vector2.zero;
+            
+
+        }
+
+
+    }
+    
  
 
 
