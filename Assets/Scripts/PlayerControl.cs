@@ -10,7 +10,14 @@ public class PlayerControl : MonoBehaviour
     bool isGrounded = false;
     bool isAttacking = false;
     bool isCrouching = false;
+    
+    [SerializeField] float attackRange = 0.5f;
+    [SerializeField] Transform attackPos;
+    [SerializeField] float attackDamage = 20f;
+    
+    
     [SerializeField] LayerMask groundLayer; 
+    [SerializeField] LayerMask enemy;
     SpriteRenderer sprite;
     Animator anim;
 
@@ -76,7 +83,11 @@ public class PlayerControl : MonoBehaviour
             anim.SetBool("Attack", true);
             isAttacking = true;
             rb.linearVelocity = new Vector2(0, 0);
-            
+            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemy);
+            foreach (Collider2D enemy in enemiesToDamage)
+            {
+                enemy.GetComponent<Enemy>().Changehealth(attackDamage);
+            }
 
         }
         else if (isAttacking)
@@ -135,6 +146,11 @@ public class PlayerControl : MonoBehaviour
         }
 
 
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
     
  

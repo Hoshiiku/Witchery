@@ -40,6 +40,8 @@ public class Enemy : MonoBehaviour
         {
             Attack();
         }
+
+        
         
     }
     private void FixedUpdate()
@@ -47,6 +49,10 @@ public class Enemy : MonoBehaviour
         if (!dead)
         {
             Move();
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(0, 0);
         }
     }
 
@@ -67,15 +73,29 @@ public class Enemy : MonoBehaviour
     public void Changehealth(float count)
     {
         health -= count;
+        print(health);
         if (health <= 0)
         {
             dead = true;
 
-            GetComponent<Collider2D>().enabled = false;
+            
             anim.SetBool("Die", true);
-            rb.linearVelocity = Vector2.zero;
-
+            anim.SetBool("Attack", false);
+            anim.SetBool("Walk", false);
 
         }
     }
+    public void Die()
+    {
+            
+        
+        Destroy(gameObject);    
+    
+    
+    
+    }
+
+
+
+
 }
