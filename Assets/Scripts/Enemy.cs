@@ -74,6 +74,12 @@ public class Enemy : MonoBehaviour
     {
         health -= count;
         print(health);
+
+        anim.SetBool("Hurt", true);
+        anim.SetBool("Attack", false);
+        Invoke("EndHurt", 1f);
+
+
         if (health <= 0)
         {
             dead = true;
@@ -82,8 +88,15 @@ public class Enemy : MonoBehaviour
             anim.SetBool("Die", true);
             anim.SetBool("Attack", false);
             anim.SetBool("Walk", false);
+            Invoke("Die", 0.75f);
 
         }
+    }
+
+
+    public void EndHurt()
+    {
+        anim.SetBool("Hurt", false);
     }
     public void Die()
     {

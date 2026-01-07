@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     bool isGrounded = false;
     bool isAttacking = false;
     bool isCrouching = false;
+   
     
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] Transform attackPos;
@@ -38,14 +39,17 @@ public class PlayerControl : MonoBehaviour
             rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
         }
         
-        if (horizontalInput > 0)
+        if (horizontalInput > 0 && health > 0)
         {
             sprite.flipX = false;
+            attackPos.localPosition = new Vector2(0.25f, attackPos.localPosition.y);
         }
-        else if (horizontalInput < 0)
+        else if (horizontalInput < 0 && health > 0)
         {
             sprite.flipX = true;
+            attackPos.localPosition = new Vector2(-0.25f, attackPos.localPosition.y);
         }
+
         //Storing the collider in a variable for easy use
         Collider2D col = GetComponent<Collider2D>();
         isGrounded = Physics2D.OverlapCircle(transform.position - transform.up * ((col.bounds.extents.y / transform.localScale.y - col.offset.y) * transform.localScale.y), 0.01f, groundLayer );
@@ -116,7 +120,11 @@ public class PlayerControl : MonoBehaviour
 
 
 
-    
+        if (health <= 0)
+        {
+            rb.linearVelocity = Vector2.zero;
+            
+        }
 
         
     }
@@ -141,6 +149,7 @@ public class PlayerControl : MonoBehaviour
         {
             anim.SetBool("Dead", true);
             rb.linearVelocity = Vector2.zero;
+            Invoke("Die", 0.77f);
             
 
         }
@@ -151,6 +160,13 @@ public class PlayerControl : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
+
+
+    void Die()
+    {
+        anim.enabled = false;
+        
     }
     
  

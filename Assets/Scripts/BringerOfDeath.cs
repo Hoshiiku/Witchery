@@ -40,7 +40,13 @@ public class BringerOfDeath : Enemy
     public void TakeDamage(float damageAmount)
     {
         Changehealth(damageAmount);
+        anim.SetBool("Hurt", true);
+        anim.SetBool("Attack", false);
+        Invoke("EndHurt", 0.25f);
     }
+
+
+    
 
 
 
